@@ -52,15 +52,16 @@ Open index.html in your browser to start using the application.
 
 ## Usage
 ### Add Participants:
-Open index.html and enter the number of partipants. Click submit and on the next page input the names of all the participants. Click Submit.
+Open index.html and enter the number of partipants and click submit.<br>
+On the next page input the names of all the participants. Click Submit.
 
 ### Enter Expenses:
-You'll be direscted to the expenses page where you have to enter the expenses one by one. 
-Enter the amount, select the payer, and choose the participants sharing the expense.
+You'll be directed to the expenses page where you have to enter the expenses one by one. <br>
+Enter the amount, select the payer, and choose the participants sharing the expense.<br>
 Click the "Add" button to save the expense and distribute it among the participants.
 
 ### Calculate and Settle Balances:
-Click on the "Calculate" button to navigate to the settlement page after adding all the payments.
+Click on the "Calculate" button to navigate to the settlement page after adding all the payments.<br>
 The application will fetch all payments from the database, calculate the amounts owed and paid, and display the settlements required to balance the expenses.
 
 ## API Endpoints
