@@ -32,7 +32,7 @@ MongoDB database (local or cloud)
 
 ### Steps
 **Clone the Repository:**
-_git clone https://github.com/your-username/Expense_Ease.git
+_git clone https://github.com/ts424/Expense-Ease.git
 cd Expense_Ease_
 
 **Install Dependencies:**
