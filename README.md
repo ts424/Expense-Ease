@@ -11,73 +11,64 @@ Expense_Ease is a web application designed to simplify expense tracking and sett
 **User-Friendly Interface:** Provides an intuitive and responsive user interface for managing expenses.<br>
 
 ## Technologies and Tech Stack
-### Frontend <br>
+### Frontend
 **HTML5:** Provides the structure of the web pages.<br>
 **CSS3:** Styles the application for a better user experience.<br>
 **JavaScript:** Implements the client-side logic and interactions.<br>
 **Fetch API:** Fetches data from the backend and updates the frontend dynamically.<br>
 
-### Backend <br>
+### Backend
 **Node.js:** Executes JavaScript code on the server.<br>
 **Express.js:** Serves as the web application framework for building the API.<br>
 **Mongoose:** Manages data and performs CRUD operations on MongoDB.<br>
 **MongoDB:** Stores participant data and expense records.<br>
 
-### Installation and Setup
-#### Prerequisites
-Node.js and npm installed
+## Installation and Setup
+### Prerequisites
+Node.js and npm installed <br>
 MongoDB database (local or cloud)
 
-## Steps
-Clone the Repository:
+---
 
-bash
-Copy code
-git clone https://github.com/your-username/Expense_Ease.git
-cd Expense_Ease
-Install Dependencies:
+### Steps
+**Clone the Repository:**
+_git clone https://github.com/your-username/Expense_Ease.git
+cd Expense_Ease_
 
-bash
-Copy code
-npm install
-Set Up Environment Variables:
+**Install Dependencies:**
+_npm install_
 
+**Set Up Environment Variables:**
 Create a .env file in the root directory and add your MongoDB connection string:
 
-env
-Copy code
-MONGO_URI=your-mongo-connection-string
-Run the Server:
+_MONGO_URI=your-mongo-connection-string_
 
-bash
-Copy code
-node server.js
+**Run the Server:**
+_node server.js_
 The server will start on http://localhost:3000.
 
 Open the Application:
+Open index.html in your browser to start using the application.
 
-Open amount.html in your browser to start using the application.
-
-Usage
-Add Participants:
-
+## Usage
+### Add Participants:
 Navigate to the participant entry page and input the names of all participants.
-Enter Expenses:
 
+### Enter Expenses:
 Go to the expense entry page.
 Enter the amount, select the payer, and choose the participants sharing the expense.
 Click the "Add" button to save the expense and distribute it among the participants.
-Calculate and Settle Balances:
 
+### Calculate and Settle Balances:
 Click on the "Calculate" button to navigate to the settlement page.
 The application will fetch all payments from the database, calculate the amounts owed and paid, and display the settlements required to balance the expenses.
-API Endpoints
-POST /api/participants: Adds participants to the database.
-GET /api/participants: Fetches the list of participants.
-POST /api/updateAmount: Updates the amounts paid and consumed by participants.
-License
-This project is licensed under the MIT License. See the LICENSE file for details.
 
-Contributing
+## API Endpoints
+POST /api/participants: Adds participants to the database.
+GET /api/paherticipants: Fetches the list of participants.
+POST /api/updateAmount: Updates the amounts paid and consumed by participants.
+Get /api/settlement: To calculate the amount owned and paid and help settle expenses.
+
+## Contributing
 Contributions are welcome! Please open an issue or submit a pull request for any changes or improvements.
 
