@@ -47,27 +47,27 @@ _MONGO_URI=your-mongo-connection-string_
 _node server.js_
 The server will start on http://localhost:3000.
 
-Open the Application:
+**Open the Application:**
 Open index.html in your browser to start using the application.
 
 ## Usage
 ### Add Participants:
-Navigate to the participant entry page and input the names of all participants.
+Open index.html and enter the number of partipants. Click submit and on the next page input the names of all the participants. Click Submit.
 
 ### Enter Expenses:
-Go to the expense entry page.
+You'll be direscted to the expenses page where you have to enter the expenses one by one. 
 Enter the amount, select the payer, and choose the participants sharing the expense.
 Click the "Add" button to save the expense and distribute it among the participants.
 
 ### Calculate and Settle Balances:
-Click on the "Calculate" button to navigate to the settlement page.
+Click on the "Calculate" button to navigate to the settlement page after adding all the payments.
 The application will fetch all payments from the database, calculate the amounts owed and paid, and display the settlements required to balance the expenses.
 
 ## API Endpoints
-POST /api/participants: Adds participants to the database.
-GET /api/paherticipants: Fetches the list of participants.
-POST /api/updateAmount: Updates the amounts paid and consumed by participants.
-Get /api/settlement: To calculate the amount owned and paid and help settle expenses.
+**POST /api/participants:** Adds participants to the database. <br>
+**GET /api/paherticipants:** Fetches the list of participants.<br>
+**POST /api/updateAmount:** Updates the amounts paid and consumed by participants.<br>
+**GET /api/settlement:** To calculate the amount owned and paid and help settle expenses.<br>
 
 ## Contributing
 Contributions are welcome! Please open an issue or submit a pull request for any changes or improvements.
