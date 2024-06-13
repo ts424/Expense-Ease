@@ -3,32 +3,32 @@
 Expense_Ease is a web application designed to simplify expense tracking and settlement among participants in a shared activity or event. This project allows users to enter expenses, select payers and participants, and automatically calculates the amounts owed and paid. It helps to ensure fair distribution of expenses and provides an easy way to settle balances among participants.
 
 ## Features
-Add Participants: Add the names of participants involved in the expense sharing.
-Enter Expenses: Input the amount and select the payer and the participants sharing the expense.
-Automatic Calculations: Automatically divides the expense among selected participants and updates the amounts paid and consumed.
-Fetch Participants: Retrieves participant data from a MongoDB database.
-Balance Settlement: Calculates the net amount each participant owes or should receive based on their expenses and payments.
-User-Friendly Interface: Provides an intuitive and responsive user interface for managing expenses.
+**Add Participants:** Add the names of participants involved in the expense sharing. <br>
+**Enter Expenses:** Input the amount and select the payer and the participants sharing the expense. <br>
+**Automatic Calculations:** Automatically divides the expense among selected participants and updates the amounts paid and consumed.<br>
+**Fetch Participants:** Retrieves participant data from a MongoDB database.<br>
+**Balance Settlement:** Calculates the net amount each participant owes or should receive based on their expenses and payments.<br>
+**User-Friendly Interface:** Provides an intuitive and responsive user interface for managing expenses.<br>
 
 ## Technologies and Tech Stack
-Frontend
-HTML5: Provides the structure of the web pages.
-CSS3: Styles the application for a better user experience.
-JavaScript: Implements the client-side logic and interactions.
-Fetch API: Fetches data from the backend and updates the frontend dynamically.
-Backend
-Node.js: Executes JavaScript code on the server.
-Express.js: Serves as the web application framework for building the API.
-Mongoose: Manages data and performs CRUD operations on MongoDB.
-MongoDB: Stores participant data and expense records.
-Middleware
-Body-Parser: Parses incoming request bodies in a middleware before handlers.
-CORS: Enables Cross-Origin Resource Sharing, allowing the frontend to communicate with the backend.
-Installation and Setup
-Prerequisites
+### Frontend <br>
+**HTML5:** Provides the structure of the web pages.<br>
+**CSS3:** Styles the application for a better user experience.<br>
+**JavaScript:** Implements the client-side logic and interactions.<br>
+**Fetch API:** Fetches data from the backend and updates the frontend dynamically.<br>
+
+### Backend <br>
+**Node.js:** Executes JavaScript code on the server.<br>
+**Express.js:** Serves as the web application framework for building the API.<br>
+**Mongoose:** Manages data and performs CRUD operations on MongoDB.<br>
+**MongoDB:** Stores participant data and expense records.<br>
+
+### Installation and Setup
+#### Prerequisites
 Node.js and npm installed
 MongoDB database (local or cloud)
-Steps
+
+## Steps
 Clone the Repository:
 
 bash
