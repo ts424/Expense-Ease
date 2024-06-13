@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="participant.css">
+    <title>Enter Participant Names</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Enter the Names of the Participants</h1>
+        <form id="participantForm">
+            <div id="participantNamesContainer"></div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const numParticipants = urlParams.get('numParticipants');
+            const container = document.getElementById('participantNamesContainer');
+
+            for (let i = 0; i < numParticipants; i++) {
+                const input = document.createElement('input');
+                input.type = 'text';
+                input.name = `participant${i + 1}`;
+                input.placeholder = 'Participant Name';
+                input.classList.add('participant-input');
+                container.appendChild(input);
+            }
+
+            document.getElementById('participantForm').addEventListener('submit', async function(event) {
+                event.preventDefault();
+
+                const inputs = container.querySelectorAll('.participant-input');
+                const participants = Array.from(inputs).map(input => input.value).filter(name => name.trim() !== '');
+
+                if (participants.length > 0) {
+                    try {
+                        const response = await fetch('http://localhost:3000/api/participants', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({ participants })
+                        });
+
+                        if (response.ok) {
+                            localStorage.setItem('participants', JSON.stringify(participants));
+                            window.location.href = 'amount.html';
+                        } else {
+                            alert('Error saving participants.');
+                        }
+                    } catch (error) {
+                        alert('Error: ' + error.message);
+                    }
+                } else {
+                    alert('Please enter at least one participant name.');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

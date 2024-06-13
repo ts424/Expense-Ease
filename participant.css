@@ -1,0 +1,59 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: black;
+    background-image: url('/images/rupixen-Cz0kKadR9Co-unsplash.jpg'); /* Adjust the path as necessary */
+    background-size: cover;
+    background-position: center;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    text-align: center;
+    border: 2px solid black;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 600px;
+}
+h1{
+    color:white
+}
+#name{
+    color: #2196F3;
+}
+input[type="number"], input[type="text"] {
+    padding: 15px;
+    font-size: 26px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 30rem;
+    margin: 10px 0;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+button {
+    padding: 15px 30px;
+    font-size: 26px;
+    color: white;
+    background-color: #2196F3;
+    border: none;
+    border-radius: 10px;
+
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 30rem;
+}
+
+button:hover {
+    background-color: #1976D2;
+}
+

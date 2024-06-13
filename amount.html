@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="amount.css">
+    <title>Expense_Ease</title>
+</head>
+<body>
+    <div class="container">
+        <form id="amountForm">
+            <input type="number" id="amount" placeholder="Enter the amount" required>
+            <select id="payerSelect" required>
+                <option value="" disabled selected>Select the payer</option>
+            </select>
+            <h3>Divided Among :-</h3>
+            <div id="participantsContainer"></div>
+            <button type="button" id="addButton">Add</button>
+            <button type="submit">Calculate</button>
+        </form>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", async function() {
+            const container = document.getElementById('participantsContainer');
+            const payerSelect = document.getElementById('payerSelect');
+            
+            try {
+                const response = await fetch('http://localhost:3000/api/participants');
+                if (response.ok) {
+                    const participants = await response.json();
+                    participants.forEach(participant => {
+                        // Add participants to the checkbox list
+                        const checkbox = document.createElement('input');
+                        checkbox.type = 'checkbox';
+                        checkbox.name = 'participants';
+                        checkbox.value = participant.name;
+
+                        const label = document.createElement('label');
+                        label.appendChild(checkbox);
+                        label.appendChild(document.createTextNode(participant.name));
+                        label.style.display = 'block';
+                        label.style.marginBottom = '10px';
+                        
+                        container.appendChild(label);
+
+                        // Add participants to the dropdown
+                        const option = document.createElement('option');
+                        option.value = participant.name;
+                        option.textContent = participant.name;
+                        payerSelect.appendChild(option);
+                    });
+                } else {
+                    alert('Error fetching participants.');
+                }
+            } catch (error) {
+                alert('Error: ' + error.message);
+            }
+
+            document.getElementById('addButton').addEventListener('click', async function() {
+                const amount = parseFloat(document.getElementById('amount').value);
+                const selectedPayer = payerSelect.value;
+                const selectedParticipants = Array.from(document.querySelectorAll('input[name="participants"]:checked')).map(cb => cb.value);
+
+                if (selectedPayer && selectedParticipants.length > 0 && amount) {
+                    const dividedAmount = amount / selectedParticipants.length;
+
+                    try {
+                        const response = await fetch('http://localhost:3000/api/updateAmount', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({
+                                amount,
+                                selectedPayer,
+                                selectedParticipants,
+                                dividedAmount
+                            })
+                        });
+
+                        if (response.ok) {
+                            alert('Amount added and distributed successfully!');
+                        } else {
+                            alert('Error updating amount.');
+                        }
+                    } catch (error) {
+                        alert('Error: ' + error.message);
+                    }
+                } else {
+                    alert('Please enter an amount, select the payer, and select at least one participant.');
+                }
+            });
+
+            document.getElementById('amountForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+                document.getElementById('amount').value = '';
+                document.querySelectorAll('input[name="participants"]').forEach(cb => cb.checked = false);
+            });
+        });
+    </script>
+</body>
+</html>
