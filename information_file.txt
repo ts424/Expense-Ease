@@ -1,0 +1,5 @@
+mongodb+srv://singhtarun6363:password@123@participants.zco5njd.mongodb.net/?retryWrites=true&w=majority&appName=participants
+
+
+
+mongodb://localhost:27017

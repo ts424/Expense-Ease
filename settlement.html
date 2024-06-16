@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Settlement</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Settlement</h1>
+        <div id="resultsContainer"></div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", async function() {
+            const resultsContainer = document.getElementById('resultsContainer');
+            
+            try {
+                // Log fetching attempt
+                console.log('Fetching participants and payments...');
+                
+                const participantsResponse = await fetch('http://localhost:3000/api/participants');
+                const paymentsResponse = await fetch('http://localhost:3000/api/payments');
+                
+                // Check response status
+                if (!participantsResponse.ok) {
+                    throw new Error('Failed to fetch participants');
+                }
+                if (!paymentsResponse.ok) {
+                    throw new Error('Failed to fetch payments');
+                }
+
+                // Parse JSON data
+                const participants = await participantsResponse.json();
+                const payments = await paymentsResponse.json();
+                
+                // Log fetched data
+                console.log('Participants:', participants);
+                console.log('Payments:', payments);
+                
+                // Initialize amounts
+                participants.forEach(participant => {
+                    participant.paid = 0;
+                    participant.consumed = 0;
+                });
+
+                // Aggregate payments
+                payments.forEach(payment => {
+                    const payer = participants.find(p => p.name === payment.payer);
+                    const consumers = payment.participants;
+                    const amount = payment.amount;
+                    const dividedAmount = amount / consumers.length;
+
+                    if (payer) {
+                        payer.ppaid += amount;
+                    }
+
+                    consumers.forEach(consumerName => {
+                        const consumer = participants.find(p => p.name === consumerName);
+                        if (consumer) {
+                            consumer.consumed += dividedAmount;
+                        }
+                    });
+                });
+
+                // Calculate net balances
+                const netBalance = {};
+                participants.forEach(participant => {
+                    netBalance[participant.name] = (participant.paid || 0) - (participant.consumed || 0);
+                });
+
+                const positiveBalances = [];
+                const negativeBalances = [];
+
+                for (const [name, balance] of Object.entries(netBalance)) {
+                    if (balance > 0) {
+                        positiveBalances.push({ name, balance });
+                    } else if (balance < 0) {
+                        negativeBalances.push({ name, balance });
+                    }
+                }
+
+                let resultText = '';
+
+                let i = 0, j = 0;
+                while (i < positiveBalances.length && j < negativeBalances.length) {
+                    const amount = Math.min(positiveBalances[i].balance, -negativeBalances[j].balance);
+                    resultText += `${negativeBalances[j].name} has to pay ${amount.toFixed(2)} to ${positiveBalances[i].name}<br>`;
+
+                    positiveBalances[i].balance -= amount;
+                    negativeBalances[j].balance += amount;
+
+                    if (positiveBalances[i].balance === 0) {
+                        i++;
+                    }
+                    if (negativeBalances[j].balance === 0) {
+                        j++;
+                    }
+                }
+
+                resultsContainer.innerHTML = resultText;
+            } catch (error) {
+                // Log the error for debugging
+                console.error('Error:', error.message);
+                alert('Error: ' + error.message);
+            }
+        });
+    </script>
+</body>
+</html>
