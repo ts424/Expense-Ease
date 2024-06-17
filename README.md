@@ -65,6 +65,7 @@ Open index.html in your browser to start using the application.
 **Open index.html and enter the number of partipants and click submit.<br>**
 ![1 Expense-Ease](https://github.com/ts424/Expense-Ease/assets/89158382/2690546f-1dc8-461e-b855-23e9bfd730c3)
 <br>
+<br>
 **On the next page input the names of all the participants. Click Submit.**
 ![2  Expense-Ease](https://github.com/ts424/Expense-Ease/assets/89158382/d4bdc972-2b95-43c5-9e18-dd4c8deb37cf)
 
@@ -72,6 +73,7 @@ Open index.html in your browser to start using the application.
 ### Enter Expenses:
 **You'll be directed to the expenses page where you have to enter the expenses one by one. <br>**
 ![3 Expense-Ease](https://github.com/ts424/Expense-Ease/assets/89158382/0996a7db-f71e-490d-80b7-e64c5645fa3d)
+<br>
 <br>
 **Enter the amount, select the payer, and choose the participants sharing the expense.<br>
 Click the "Add" button to save the expense and distribute it among the participants.**
