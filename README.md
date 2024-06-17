@@ -23,6 +23,16 @@ Expense_Ease is a web application designed to simplify expense tracking and sett
 **Mongoose:** Manages data and performs CRUD operations on MongoDB.<br>
 **MongoDB:** Stores participant data and expense records.<br>
 
+![1 Expense-Ease](https://github.com/ts424/Expense-Ease/assets/89158382/2690546f-1dc8-461e-b855-23e9bfd730c3)
+![2  Expense-Ease](https://github.com/ts424/Expense-Ease/assets/89158382/d4bdc972-2b95-43c5-9e18-dd4c8deb37cf)
+![3 Expense-Ease](https://github.com/ts424/Expense-Ease/assets/89158382/0996a7db-f71e-490d-80b7-e64c5645fa3d)
+![4 Expense-Ease](https://github.com/ts424/Expense-Ease/assets/89158382/cba2ae0d-93f3-4742-8c62-befb1e010e70)
+![5 Expense-Ease](https://github.com/ts424/Expense-Ease/assets/89158382/62b595c9-03be-48c0-8035-20632147c03d)
+
+
+
+
+
 ## Installation and Setup
 ### Prerequisites
 Node.js and npm installed <br>
