@@ -5,7 +5,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-image: url('/rupixen-Cz0kKadR9Co-unsplash.jpg'); /* Adjust the path as necessary */
+    background-image: url('rupixen-Cz0kKadR9Co-unsplash.jpg'); /* Adjust the path as necessary */
     background-size: cover;
     background-position: center;
     font-family: Arial, sans-serif;
